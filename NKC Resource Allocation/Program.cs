@@ -1,8 +1,7 @@
-
-
-
 using Microsoft.EntityFrameworkCore;
 using NKC_Resource_Allocation;
+using NKC_Resource_Allocation.Database.Helper;
+using NKC_Resource_Allocation.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +18,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
 
+builder.Services.AddScoped<QueryHelper>();
+builder.Services.AddScoped<OutletRepository>();
+builder.Services.AddScoped<AuditorRepository>();
+builder.Services.AddScoped<DocumentRepository>();
 
 
 builder.Services.AddSwaggerGen();

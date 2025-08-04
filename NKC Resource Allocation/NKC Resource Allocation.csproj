@@ -23,9 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Utilities\" />
-    <Folder Include="Repositories\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
