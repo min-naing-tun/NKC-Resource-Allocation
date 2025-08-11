@@ -71,7 +71,7 @@ namespace NKC_Resource_Allocation.Repositories
                 await _context.Outlets.AddAsync(o);
                 await _context.SaveChangesAsync();
                 response.IsSuccess = true;
-                response.Message = "Outlet created successfully";
+                response.Message = $"Outlet {o.OutletId} created successfully";
             }
             catch (Exception ex)
             {

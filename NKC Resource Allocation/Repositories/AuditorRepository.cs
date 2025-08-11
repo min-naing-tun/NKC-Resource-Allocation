@@ -71,7 +71,7 @@ namespace NKC_Resource_Allocation.Repositories
                 await _context.Auditors.AddAsync(a);
                 await _context.SaveChangesAsync();
                 response.IsSuccess = true;
-                response.Message = "Auditor created successfully";
+                response.Message = $"Auditor {a.AuditorId} created successfully";
             }
             catch (Exception ex)
             {
