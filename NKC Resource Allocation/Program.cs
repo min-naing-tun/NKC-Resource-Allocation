@@ -22,6 +22,7 @@ builder.Services.AddScoped<QueryHelper>();
 builder.Services.AddScoped<OutletRepository>();
 builder.Services.AddScoped<AuditorRepository>();
 builder.Services.AddScoped<DocumentRepository>();
+builder.Services.AddScoped<FormRepository>();
 
 
 builder.Services.AddSwaggerGen();
