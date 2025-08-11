@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NKC_Resource_Allocation;
 
@@ -11,9 +12,11 @@ using NKC_Resource_Allocation;
 namespace NKC_Resource_Allocation.Migrations
 {
     [DbContext(typeof(NKC_DbContext))]
-    partial class NKC_DbContextModelSnapshot : ModelSnapshot
+    [Migration("20250807025135_updateColsAtDocumentsTbl")]
+    partial class updateColsAtDocumentsTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
