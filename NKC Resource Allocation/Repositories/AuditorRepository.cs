@@ -106,7 +106,7 @@ namespace NKC_Resource_Allocation.Repositories
 
                     await _context.SaveChangesAsync();
                     response.IsSuccess = true;
-                    response.Message = "Auditor updated successfully";
+                    response.Message = $"Auditor {auditor.AuditorId} updated successfully";
                 }
             }
             catch (Exception ex)

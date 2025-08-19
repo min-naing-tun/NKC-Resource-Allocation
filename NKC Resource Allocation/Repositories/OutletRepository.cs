@@ -106,7 +106,7 @@ namespace NKC_Resource_Allocation.Repositories
                     
                     await _context.SaveChangesAsync();
                     response.IsSuccess = true;
-                    response.Message = "Outlet updated successfully";
+                    response.Message = $"Outlet {outlet.OutletId} updated successfully";
                 }
             }
             catch (Exception ex)

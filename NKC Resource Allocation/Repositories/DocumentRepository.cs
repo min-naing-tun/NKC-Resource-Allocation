@@ -99,7 +99,7 @@ namespace NKC_Resource_Allocation.Repositories
                 await _context.Documents.AddAsync(d);
                 await _context.SaveChangesAsync();
                 response.IsSuccess = true;
-                response.Message = "Documents created successfully";
+                response.Message = $"Documents {d.DocumentId} created successfully";
             }
             catch (Exception ex)
             {
@@ -126,42 +126,42 @@ namespace NKC_Resource_Allocation.Repositories
                 {
                     document.AuditorId = model.AuditorId;
                     document.OutletId = model.OutletId;
-                    document.BarrelAndCO2_Res_1_Name = model.BarrelAndCO2_Res_1_Name;
-                    document.BarrelAndCO2_Res_1_Value = model.BarrelAndCO2_Res_1_Value;
-                    document.BarrelAndCO2_Res_2_Name = model.BarrelAndCO2_Res_2_Name;
-                    document.BarrelAndCO2_Res_2_Value = model.BarrelAndCO2_Res_2_Value;
-                    document.BarrelAndCO2_Res_3_Name = model.BarrelAndCO2_Res_3_Name;
-                    document.BarrelAndCO2_Res_3_Value = model.BarrelAndCO2_Res_3_Value;
-                    document.BarrelAndCO2_Res_4_Name = model.BarrelAndCO2_Res_4_Name;
-                    document.BarrelAndCO2_Res_4_Value = model.BarrelAndCO2_Res_4_Value;
-                    document.BarrelAndCO2_Res_5_Name = model.BarrelAndCO2_Res_5_Name;
-                    document.BarrelAndCO2_Res_5_Value = model.BarrelAndCO2_Res_5_Value;
-                    document.BarrelAndCO2_Res_6_Name = model.BarrelAndCO2_Res_6_Name;
-                    document.BarrelAndCO2_Res_6_Value = model.BarrelAndCO2_Res_6_Value;
-                    document.BarrelAndCO2_Res_7_Name = model.BarrelAndCO2_Res_7_Name;
-                    document.BarrelAndCO2_Res_7_Value = model.BarrelAndCO2_Res_7_Value;
-                    document.BarrelAndCO2_Res_8_Name = model.BarrelAndCO2_Res_8_Name;
-                    document.BarrelAndCO2_Res_8_Value = model.BarrelAndCO2_Res_8_Value;
-                    document.Machine_Res_1_Name = model.Machine_Res_1_Name;
-                    document.Machine_Res_1_Value = model.Machine_Res_1_Value;
-                    document.Machine_Res_2_Name = model.Machine_Res_2_Name;
-                    document.Machine_Res_2_Value = model.Machine_Res_2_Value;
-                    document.Machine_Res_3_Name = model.Machine_Res_3_Name;
-                    document.Machine_Res_3_Value = model.Machine_Res_3_Value;
-                    document.Machine_Res_4_Name = model.Machine_Res_4_Name;
-                    document.Machine_Res_4_Value = model.Machine_Res_4_Value;
-                    document.Machine_Res_5_Name = model.Machine_Res_5_Name;
-                    document.Machine_Res_5_Value = model.Machine_Res_5_Value;
-                    document.AuditorNRCFront_Name = model.AuditorNRCFront_Name;
-                    document.AuditorNRCFront_Value = model.AuditorNRCFront_Value;
-                    document.AuditorNRCBack_Name = model.AuditorNRCBack_Name;
-                    document.AuditorNRCBack_Value = model.AuditorNRCBack_Value;
+                    document.BarrelAndCO2_Res_1_Name = (model.BarrelAndCO2_Res_1_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_1_Name);
+                    document.BarrelAndCO2_Res_1_Value = (model.BarrelAndCO2_Res_1_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_1_Value);
+                    document.BarrelAndCO2_Res_2_Name = (model.BarrelAndCO2_Res_2_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_2_Name);
+                    document.BarrelAndCO2_Res_2_Value = (model.BarrelAndCO2_Res_2_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_2_Value);
+                    document.BarrelAndCO2_Res_3_Name = (model.BarrelAndCO2_Res_3_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_3_Name);
+                    document.BarrelAndCO2_Res_3_Value = (model.BarrelAndCO2_Res_3_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_3_Value);
+                    document.BarrelAndCO2_Res_4_Name = (model.BarrelAndCO2_Res_4_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_4_Name);
+                    document.BarrelAndCO2_Res_4_Value = (model.BarrelAndCO2_Res_4_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_4_Value);
+                    document.BarrelAndCO2_Res_5_Name = (model.BarrelAndCO2_Res_5_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_5_Name);
+                    document.BarrelAndCO2_Res_5_Value = (model.BarrelAndCO2_Res_5_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_5_Value);
+                    document.BarrelAndCO2_Res_6_Name = (model.BarrelAndCO2_Res_6_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_6_Name);
+                    document.BarrelAndCO2_Res_6_Value = (model.BarrelAndCO2_Res_6_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_6_Value);
+                    document.BarrelAndCO2_Res_7_Name = (model.BarrelAndCO2_Res_7_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_7_Name);
+                    document.BarrelAndCO2_Res_7_Value = (model.BarrelAndCO2_Res_7_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_7_Value);
+                    document.BarrelAndCO2_Res_8_Name = (model.BarrelAndCO2_Res_8_Name.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_8_Name);
+                    document.BarrelAndCO2_Res_8_Value = (model.BarrelAndCO2_Res_8_Value.IsNullOrEmpty() ? null : model.BarrelAndCO2_Res_8_Value);
+                    document.Machine_Res_1_Name = (model.Machine_Res_1_Name.IsNullOrEmpty() ? null : model.Machine_Res_1_Name);
+                    document.Machine_Res_1_Value = (model.Machine_Res_1_Value.IsNullOrEmpty() ? null : model.Machine_Res_1_Value);
+                    document.Machine_Res_2_Name = (model.Machine_Res_2_Name.IsNullOrEmpty() ? null : model.Machine_Res_2_Name);
+                    document.Machine_Res_2_Value = (model.Machine_Res_2_Value.IsNullOrEmpty() ? null : model.Machine_Res_2_Value);
+                    document.Machine_Res_3_Name = (model.Machine_Res_3_Name.IsNullOrEmpty() ? null : model.Machine_Res_3_Name);
+                    document.Machine_Res_3_Value = (model.Machine_Res_3_Value.IsNullOrEmpty() ? null : model.Machine_Res_3_Value);
+                    document.Machine_Res_4_Name = (model.Machine_Res_4_Name.IsNullOrEmpty() ? null : model.Machine_Res_4_Name);
+                    document.Machine_Res_4_Value = (model.Machine_Res_4_Value.IsNullOrEmpty() ? null : model.Machine_Res_4_Value);
+                    document.Machine_Res_5_Name = (model.Machine_Res_5_Name.IsNullOrEmpty() ? null : model.Machine_Res_5_Name);
+                    document.Machine_Res_5_Value = (model.Machine_Res_5_Value.IsNullOrEmpty() ? null : model.Machine_Res_5_Value);
+                    document.AuditorNRCFront_Name = (model.AuditorNRCFront_Name.IsNullOrEmpty() ? null : model.AuditorNRCFront_Name);
+                    document.AuditorNRCFront_Value = (model.AuditorNRCFront_Value.IsNullOrEmpty() ? null : model.AuditorNRCFront_Value);
+                    document.AuditorNRCBack_Name = (model.AuditorNRCBack_Name.IsNullOrEmpty() ? null : model.AuditorNRCBack_Name);
+                    document.AuditorNRCBack_Value = (model.AuditorNRCBack_Value.IsNullOrEmpty() ? null : model.AuditorNRCBack_Value);
                     document.UpdatedDate = DateTime.Now;
                     document.UpdatedUser = model.UpdatedUser;
 
                     await _context.SaveChangesAsync();
                     response.IsSuccess = true;
-                    response.Message = "Document updated successfully";
+                    response.Message = $"Documents {document.DocumentId} updated successfully";
                 }
             }
             catch (Exception ex)
