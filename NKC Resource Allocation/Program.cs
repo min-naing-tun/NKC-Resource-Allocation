@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NKC_Resource_Allocation;
+using NKC_Resource_Allocation.Database.CoreService;
 using NKC_Resource_Allocation.Database.Helper;
 using NKC_Resource_Allocation.Repositories;
 
@@ -19,6 +20,7 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 
 
 builder.Services.AddScoped<QueryHelper>();
+builder.Services.AddScoped<CoreService>();
 builder.Services.AddScoped<OutletRepository>();
 builder.Services.AddScoped<AuditorRepository>();
 builder.Services.AddScoped<DocumentRepository>();

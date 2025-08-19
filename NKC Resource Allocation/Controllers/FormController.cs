@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NKC_Resource_Allocation.Database.Helper;
 using NKC_Resource_Allocation.DbModels;
 using NKC_Resource_Allocation.Repositories;
 using System.Data;
@@ -17,17 +18,45 @@ namespace NKC_Resource_Allocation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var data = _repo.GetAllAsync().Result;
+            var data = await _repo.GetAllAsync();
             return Ok(data);
         }
 
         [HttpGet]
-        public IActionResult GetFormInitData()
+        public async Task<IActionResult> GetFormInitData()
         {
-            var data = _repo.GetDataForFormInit().Result;
+            var data = await _repo.GetDataForFormInit();
             return Ok(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetForm(string outletId, string auditorId, string doucumentId)
+        {
+            var data = await _repo.GetFormDetailAsync(outletId, auditorId, doucumentId);
+            return Ok(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetFormList(DateTime? startDate, DateTime? endDate, string? searchText)
+        {
+            DataTable dt = await _repo.GetByFilterAsync(startDate, endDate, searchText);
+            return Ok(dt);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetFormListPaging(int pageNo, int rowLimit, DateTime? startDate, DateTime? endDate, string? searchText)
+        {
+            DataTable dt = await _repo.GetByFilterPagingAsync(pageNo, rowLimit, startDate, endDate, searchText);
+            return Ok(dt);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string documentId, string auditorId, string outletId)
+        {
+            ResponseModel res = await _repo.DeleteFormRecordAsync(documentId, auditorId, outletId);
+            return Ok(res);
         }
     }
 }
