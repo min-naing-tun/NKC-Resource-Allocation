@@ -2,7 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using NKC_Resource_Allocation;
 using NKC_Resource_Allocation.Database.CoreService;
 using NKC_Resource_Allocation.Database.Helper;
+using NKC_Resource_Allocation.Middleware;
 using NKC_Resource_Allocation.Repositories;
+using NKC_Resource_Allocation.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,10 +28,22 @@ builder.Services.AddScoped<AuditorRepository>();
 builder.Services.AddScoped<DocumentRepository>();
 builder.Services.AddScoped<FormRepository>();
 
+// Bind individual keys from root
+builder.Services.Configure<KeyConfig>(builder.Configuration);
+
+
+builder.Services.AddMemoryCache();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddResponseCompression();
+
 
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Middleware
+app.UseMiddleware<Guard>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
@@ -37,6 +51,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseResponseCompression();
 
 app.UseHttpsRedirection();
 
